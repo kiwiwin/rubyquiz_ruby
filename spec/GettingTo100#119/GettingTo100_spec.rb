@@ -41,8 +41,8 @@ describe GettingTo100 do
 		@gettingTo100.allFormulas.size.should == 168
 	end
 
-	it "should return more than 168 for all equations" do
-		@gettingTo100.allEquations.size.should > 168
+	it "should return more than 168 elements for all equations" do
+		@gettingTo100.displayAllEquations.size.should > 168
 	end
 
 end
