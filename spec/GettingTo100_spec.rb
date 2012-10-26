@@ -1,4 +1,4 @@
-require_relative "../../src/GettingTo100#119/GettingTo100"
+require_relative "spec_helper"
 
 describe GettingTo100 do
 	before(:all) do
