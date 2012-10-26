@@ -25,17 +25,22 @@ private
 	end
 
 	def validate_divisble_by_10
-		sum_str = ""
-		(@num.size-1).downto(0) do |index|
-			if (@num.size - index) % 2 == 0
-				sum_str += (@num[index].to_i * 2).to_s
+		multiply_two = false
+		sum = @num.split(//).reverse.inject(0) do |sum, char|
+			if multiply_two
+				sum += sum_digit((char.to_i*2).to_s)
 			else
-				sum_str += @num[index].to_s
+				sum += sum_digit((char.to_i).to_s)
 			end
-		end
-		sum = sum_str.each_char.inject(0) do |sum, char|
-			sum += char.to_i
+			multiply_two ^= true
+			sum
 		end
 		sum % 10 == 0
+	end
+	
+	def sum_digit(number)
+		number.each_char.inject(0) do |sum, char|
+			sum += char.to_i
+		end	
 	end
 end
